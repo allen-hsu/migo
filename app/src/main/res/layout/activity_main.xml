@@ -12,30 +12,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/connect_wifi"
+        app:layout_constraintBottom_toTopOf="@+id/network_mode"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:text="None"/>
 
     <TextView
-        android:id="@+id/connect_wifi"
+        android:id="@+id/network_mode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/network_available"
-        app:layout_constraintBottom_toTopOf="@+id/connect_cellular"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:text="Connect Wifi"/>
-
-    <TextView
-        android:id="@+id/connect_cellular"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/connect_wifi"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:text="Connect Cellular"/>
+        tools:text="Connect Wifi"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

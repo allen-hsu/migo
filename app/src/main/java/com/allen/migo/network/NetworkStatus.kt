@@ -1,7 +1,7 @@
 package com.allen.migo.network
 
+import androidx.lifecycle.LiveData
+
 interface NetworkStatus {
-    fun isNetworkAvailable(): Boolean
-    fun isConnectedToWifi() : Boolean
-    fun isConnectedToCellular() : Boolean
+//    fun isNetworkAvailable(): LiveData<Boolean>
 }

@@ -7,6 +7,7 @@ import androidx.lifecycle.Observer
 import com.allen.migo.viewmodel.MainVMFactory
 import com.allen.migo.viewmodel.MainViewModel
 import com.allen.migo.R
+import com.allen.migo.network.NetworkManager
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -17,16 +18,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        viewModel.isConnectCellular.observe(this, Observer {
-            connect_cellular.text = it.toString()
-        })
-
-        viewModel.isConnectWifi.observe(this, Observer {
-            connect_wifi.text = it.toString()
-        })
-
-        viewModel.isNetworkAvailable.observe(this, Observer {
+        NetworkManager.getInstance().networkAvailable.observe(this, Observer {
             network_available.text = it.toString()
+        })
+
+        NetworkManager.getInstance().networkMode.observe(this, Observer {
+            network_mode.text = it.value
         })
     }
 }
