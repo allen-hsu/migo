@@ -11,6 +11,7 @@ ext {
     coordinatorlayoutVersion = "1.1.0"
     materialVersion = "1.2.0"
     multidexVersion = "2.0.1"
+    koinVersion = "2.1.6"
 
     ktxVersion = "1.3.1"
     liveDataKtxVersion = "2.2.0"
