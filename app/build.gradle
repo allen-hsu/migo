@@ -22,6 +22,15 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    compileOptions {
+        sourceCompatibility rootProject.ext.compileJavaVersion
+        targetCompatibility rootProject.ext.compileJavaVersion
+    }
+
+    kotlinOptions {
+        jvmTarget = rootProject.ext.kotlinJvmVersion
+    }
 }
 
 dependencies {
@@ -31,6 +40,15 @@ dependencies {
     implementation "androidx.appcompat:appcompat:${rootProject.ext.appcompatVersion}"
     implementation "com.squareup.okhttp3:okhttp:${rootProject.ext.okHttpVersion}"
     implementation "com.squareup.retrofit2:retrofit:${rootProject.ext.retrofitVersion}"
+    implementation "androidx.constraintlayout:constraintlayout:${rootProject.ext.constraintlayoutVersion}"
+    implementation "androidx.coordinatorlayout:coordinatorlayout:${rootProject.ext.coordinatorlayoutVersion}"
+    implementation "com.google.android.material:material:${rootProject.ext.materialVersion}"
+    implementation "androidx.multidex:multidex:${rootProject.ext.multidexVersion}"
+    // ktx
+    implementation "androidx.core:core-ktx:${rootProject.ext.ktxVersion}"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:${rootProject.ext.liveDataKtxVersion}"
+    implementation "androidx.fragment:fragment-ktx:${rootProject.ext.fragmentKtxVersion}"
+    implementation "androidx.activity:activity-ktx:${rootProject.ext.activityKtxVersion}"
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
