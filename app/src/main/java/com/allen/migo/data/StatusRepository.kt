@@ -5,7 +5,7 @@ import retrofit2.Response
 
 class StatusRepository(private val remoteDataSource: StatusRemoteDataSource) {
 
-    suspend fun fetchData() : Response<StatusApiResult> {
-        return remoteDataSource.fetchData()
+    suspend fun queryStatus() : Response<StatusApiResult> {
+        return remoteDataSource.queryStatus()
     }
 }

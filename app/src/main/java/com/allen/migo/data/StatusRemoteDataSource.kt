@@ -8,11 +8,11 @@ import com.allen.migo.network.api.StatusService
 import retrofit2.Response
 
 class StatusRemoteDataSource(private val service: StatusService, private val networkHandle: NetworkHandle) {
-    suspend fun fetchData() : Response<StatusApiResult> {
+    suspend fun queryStatus() : Response<StatusApiResult> {
         return if(networkHandle.networkMode.value == NetworkMode.WIFI) {
-            service.getStatus(ApiHostConstant.PUBLIC_API_HOST)
+            service.queryStatus(ApiHostConstant.PUBLIC_API_HOST)
         } else {
-            service.getStatus(ApiHostConstant.PUBLIC_API_HOST)
+            service.queryStatus(ApiHostConstant.PUBLIC_API_HOST)
         }
     }
 }

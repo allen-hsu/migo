@@ -8,5 +8,5 @@ import retrofit2.http.Url
 
 interface StatusService {
     @GET("{fullUrl}/status")
-    suspend fun getStatus(@Path(value = "fullUrl", encoded = true) url: String?): Response<StatusApiResult>
+    suspend fun queryStatus(@Path(value = "fullUrl", encoded = true) url: String?): Response<StatusApiResult>
 }

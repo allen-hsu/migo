@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.allen.migo.R
+import com.allen.migo.network.core.ApiResult
 import com.allen.migo.network.core.NetworkHandle
 import com.allen.migo.viewmodel.StatusViewModel
 import kotlinx.android.synthetic.main.activity_main.*
@@ -15,19 +16,17 @@ import kotlinx.android.synthetic.main.fragment_status.view.*
 import org.koin.android.ext.android.inject
 import org.koin.android.viewmodel.ext.android.viewModel
 
-class StatusFragment : Fragment() {
+class StatusFragment : BaseFragment() {
     private val statusViewModel: StatusViewModel by viewModel()
     private val networkHandle: NetworkHandle by inject()
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        val root = inflater.inflate(R.layout.fragment_status, container, false)
-        initObserver(root)
-        initView(root)
-        return root
+    override fun getLayout() : Int {
+        return R.layout.fragment_status
+    }
+
+    override fun init(view: View) {
+        initView(view)
+        initObserver(view)
     }
 
     private fun initObserver(view: View) {
@@ -46,7 +45,13 @@ class StatusFragment : Fragment() {
 
     private fun initView(view: View) {
         view.btn_status.setOnClickListener {
-            statusViewModel.getNetworkStatus()
+            statusViewModel.getNetworkStatus().observe(this.viewLifecycleOwner, Observer {
+                when(it.status) {
+                    ApiResult.Status.SUCCESS -> getBaseActivity().hideLoading()
+                    ApiResult.Status.ERROR -> getBaseActivity().hideLoading()
+                    ApiResult.Status.LOADING -> getBaseActivity().showLoading()
+                }
+            })
         }
     }
 }
