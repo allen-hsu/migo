@@ -19,5 +19,6 @@ ext {
     activityKtxVersion = "1.2.0-alpha07"
 
     okHttpVersion = "4.8.1"
-    retrofitVersion = "2.4.0"
+    retrofitVersion = "2.9.0"
+    gsonVersion = "2.8.6"
 }

@@ -1,13 +1,18 @@
 package com.allen.migo
 
 import androidx.multidex.MultiDexApplication
-import com.allen.migo.network.NetworkManager
+import com.allen.migo.di.appModule
+import org.koin.android.ext.koin.androidContext
+import org.koin.core.context.startKoin
 
 
 class MigoApp: MultiDexApplication() {
 
     override fun onCreate() {
         super.onCreate()
-        NetworkManager.init(this)
+        startKoin {
+            androidContext(this@MigoApp)
+            modules(appModule)
+        }
     }
 }

@@ -38,12 +38,20 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation "androidx.core:core-ktx:${rootProject.ext.ktxVersion}"
     implementation "androidx.appcompat:appcompat:${rootProject.ext.appcompatVersion}"
-    implementation "com.squareup.okhttp3:okhttp:${rootProject.ext.okHttpVersion}"
-    implementation "com.squareup.retrofit2:retrofit:${rootProject.ext.retrofitVersion}"
     implementation "androidx.constraintlayout:constraintlayout:${rootProject.ext.constraintlayoutVersion}"
     implementation "androidx.coordinatorlayout:coordinatorlayout:${rootProject.ext.coordinatorlayoutVersion}"
     implementation "com.google.android.material:material:${rootProject.ext.materialVersion}"
     implementation "androidx.multidex:multidex:${rootProject.ext.multidexVersion}"
+
+    //Gson
+    implementation "com.google.code.gson:gson:${rootProject.ext.gsonVersion}"
+
+    //Network
+    implementation "com.squareup.okhttp3:okhttp:${rootProject.ext.okHttpVersion}"
+    implementation "com.squareup.okhttp3:logging-interceptor:${rootProject.ext.okHttpVersion}"
+    implementation "com.squareup.retrofit2:retrofit:${rootProject.ext.retrofitVersion}"
+    implementation "com.squareup.retrofit2:converter-gson:${rootProject.ext.retrofitVersion}"
+
     // ktx
     implementation "androidx.core:core-ktx:${rootProject.ext.ktxVersion}"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:${rootProject.ext.liveDataKtxVersion}"
@@ -51,13 +59,20 @@ dependencies {
     implementation "androidx.activity:activity-ktx:${rootProject.ext.activityKtxVersion}"
 
     // koin
-
     // Koin for Kotlin
     implementation "org.koin:koin-core:$rootProject.ext.koinVersion"
     // Koin extended & experimental features
     implementation "org.koin:koin-core-ext:$rootProject.ext.koinVersion"
     // Koin for Unit tests
     testImplementation "org.koin:koin-test:$rootProject.ext.koinVersion"
+    // Koin for Android
+    implementation "org.koin:koin-android:$rootProject.ext.koinVersion"
+    // Koin Android Scope features
+    implementation "org.koin:koin-android-scope:$rootProject.ext.koinVersion"
+    // Koin Android ViewModel features
+    implementation "org.koin:koin-android-viewmodel:$rootProject.ext.koinVersion"
+    // Koin Android Experimental features
+    implementation "org.koin:koin-android-ext:$rootProject.ext.koinVersion"
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'

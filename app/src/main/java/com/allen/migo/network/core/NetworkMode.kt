@@ -1,4 +1,4 @@
-package com.allen.migo.network
+package com.allen.migo.network.core
 
 enum class NetworkMode(val value: String) {
     NONE("NONE"),
