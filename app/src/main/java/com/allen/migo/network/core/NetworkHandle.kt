@@ -92,12 +92,9 @@ class NetworkHandle (private val context: Context) {
     }
 
     private fun registerNetworkCallback() {
-        //ref: https://stackoverflow.com/questions/32185628/connectivitymanager-requestnetwork-in-android-6-0
-        if (Build.VERSION.SDK_INT != Build.VERSION_CODES.M) {
-            connectivityManager?.requestNetwork(
-                NetworkRequest.Builder().build(),
-                networkCallback
-            )
-        }
+        connectivityManager?.requestNetwork(
+            NetworkRequest.Builder().build(),
+            networkCallback
+        )
     }
 }
