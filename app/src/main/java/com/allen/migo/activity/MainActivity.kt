@@ -1,4 +1,4 @@
-package com.allen.migo.view
+package com.allen.migo.activity
 
 import android.os.Bundle
 import android.view.View

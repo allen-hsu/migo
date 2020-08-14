@@ -2,8 +2,8 @@ package com.allen.migo.logic
 
 import com.allen.migo.ext.convertToFullDateTime
 
-class Passport private constructor(private val unitNum: Int,
-                                   private val provider: PassportProvider?){
+class Pass private constructor(private val unitNum: Int,
+                               private val provider: PassportProvider?){
 
 
     private var _activateTimestamp = 0L
@@ -19,7 +19,7 @@ class Passport private constructor(private val unitNum: Int,
 
         fun unitNum(unitNum: Int) = apply { this.unitNum = unitNum }
         fun provider(provider: PassportProvider) = apply { this.provider = provider }
-        fun build() = Passport(unitNum, provider)
+        fun build() = Pass(unitNum, provider)
     }
 
     fun expiredDateTime(): String {

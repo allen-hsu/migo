@@ -1,4 +1,4 @@
-package com.allen.migo.view
+package com.allen.migo.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
