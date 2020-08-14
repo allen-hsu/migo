@@ -3,6 +3,7 @@
     <string name="nav_network_status">Network</string>
     <string name="nav_wallet">Wallet</string>
     <string name="btn_status">Get NetworkStatus</string>
+    <string name="btn_add_pass">Add Pass</string>
     <string name="text_status">Network Status %1$s</string>
     <string name="text_message">Network Message %1$s</string>
 </resources>

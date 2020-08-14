@@ -7,7 +7,6 @@ import com.allen.migo.data.StatusRepository
 import com.allen.migo.network.core.ApiResult
 import kotlinx.coroutines.launch
 
-
 class StatusViewModel(private val repository : StatusRepository): BaseViewModel() {
 
     private val _status = MutableLiveData(0)
