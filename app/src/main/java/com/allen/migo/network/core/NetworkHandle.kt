@@ -65,7 +65,23 @@ class NetworkHandle (private val context: Context) {
                     }
                 }
 
-                if(networkCapabilities.hasTransport(TRANSPORT_WIFI) && networkCapabilities.hasTransport(TRANSPORT_CELLULAR)) {
+                var isConnectWifi = false
+                var isConnectCellular = false
+                connectivityManager?.run {
+                    for(networkInfo in this.allNetworks) {
+                        val capabilities = this.getNetworkCapabilities(networkInfo)
+                        capabilities?.run {
+                            if(this.hasTransport(TRANSPORT_WIFI)) {
+                                isConnectWifi = true
+                            }
+                            if(this.hasTransport(TRANSPORT_CELLULAR)) {
+                                isConnectCellular = true
+                            }
+                        }
+                    }
+                }
+
+                if(isConnectWifi && isConnectCellular) {
                     _apiEnv.postValue(ApiEnv.PRIVATE)
                 } else {
                     _apiEnv.postValue(ApiEnv.PUBLIC)

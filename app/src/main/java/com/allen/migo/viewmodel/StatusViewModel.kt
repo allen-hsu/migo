@@ -34,22 +34,4 @@ class StatusViewModel(private val repository : StatusRepository): BaseViewModel(
             emit(ApiResult.error(response.message(), data = null))
         }
     }
-//    fun getNetworkStatus() {
-//        viewModelScope.launch {
-//
-//            repository.fetchData().let {
-//                if(it.isSuccessful) {
-//                    it.body()?.apply {
-//                        this.status?.apply {
-//                            _status.postValue(this)
-//                        }
-//
-//                        this.message?.apply {
-//                            _message.postValue(this)
-//                        }
-//                    }
-//                }
-//            }
-//        }
-//    }
 }
