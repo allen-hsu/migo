@@ -1,26 +1,18 @@
 package com.allen.migo.logic
 
-interface MemberPass {
-
-    fun expiredDate(): String
-
-    fun activateDate(): String
-
-    fun insertDate(): String
-
+interface PassportProvider {
+    fun expiredTimestamp(num: Int, activateTimestamp: Long): Long
     fun passType(): PassType
-
-    fun status(): PassStatus
-
-    fun activate()
 }
 
 enum class PassType {
+    UNKNOWN,
     HOUR,
     DAY,
 }
 
 enum class PassStatus {
+    UNKNOWN,
     NOT_ACTIVATE,
     ACTIVATE,
     EXPIRE,
