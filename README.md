@@ -9,16 +9,16 @@ It's sample project, include mvvm architecture, network status handle.
 
     .
     ├── app/src/main/java/src
-      ├── constant                   	# Constant
-      ├── data                    		# Data files, Repository/DataSource
+      ├── constant                   		# Constant
+      ├── data                    			# Data files, Repository/DataSource
       ├── di                     			# Di files
       ├── ext                    			# Kotlin Extension
-      ├── framework                   # Base Class
-      ├── logic                   		# Business login file
-      ├── network                   	# Netowork Handle and API service for Retrofit use
+      ├── framework                   	    # Base Class
+      ├── logic                   			# Business login file
+      ├── network                   		# Network Handle and API service for Retrofit use
       ├── ui                   				# Recycle ViewHolder/Adapter, ViewPager adapter
-      ├── viewmodel                   # ViewModel class
-    ├── gradle/version.gradle					# put all dependency 3rd version declare
+      ├── viewmodel                   	    # ViewModel class
+    ├── gradle/version.gradle				# Put all dependency 3rd version declare
     ├── LICENSE
     └── README.md
 
@@ -38,7 +38,7 @@ It's sample project, include mvvm architecture, network status handle.
 > + Use Strategy Pattern to implement different algorithm within pass provider and using Builder Pattern to Factory correct pass provider
 
 ### Mock Logic
-> Just Mock Passprovid to valid expired circumstance, if you want to test, you cat uncommit those
+> Just Mock Passprovid to valid expired circumstance, if you want to test, you can uncomment this code section.
 
 ```kotlin
 PassLocalDataSource.class
