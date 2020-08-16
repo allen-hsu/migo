@@ -18,7 +18,7 @@ import java.lang.ref.WeakReference
 class WalletFragment : BaseFragment() {
 
     private val viewModel: WalletViewModel by viewModel()
-
+    private var tabLayoutMediator: TabLayoutMediator? = null
     override fun getLayout(): Int {
         return R.layout.fragment_wallet
     }
@@ -28,10 +28,12 @@ class WalletFragment : BaseFragment() {
             childFragmentManager,
             lifecycle
         )
-        TabLayoutMediator(view.tab_layout, view.pager) { tab, position ->
-            tab.text = PassType.values()[position].name
-        }.attach()
 
+        tabLayoutMediator = TabLayoutMediator(view.tab_layout, view.pager) { tab, position ->
+            tab.text = PassType.values()[position].name
+        }
+
+        tabLayoutMediator?.attach()
 
         val passTypeArray = PassType.values().filter { it.compareTo(PassType.UNKNOWN) != 0 }
         val adapter = ArrayAdapter<PassType>(
@@ -65,11 +67,9 @@ class WalletFragment : BaseFragment() {
     }
 
     override fun release(view: View) {
-        TabLayoutMediator(view.tab_layout, view.pager) { tab, position ->
-            tab.text = PassType.values()[position].name
-        }.detach()
-
+        tabLayoutMediator?.detach()
         view.pager.adapter = null
+        view.spinner.adapter = null
     }
 
     private fun checkPassNumValid(num: String?): Boolean {
