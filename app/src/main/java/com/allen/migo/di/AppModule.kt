@@ -1,9 +1,9 @@
 package com.allen.migo.di
 
-import com.allen.migo.data.StatusRemoteDataSource
-import com.allen.migo.data.StatusRepository
-import com.allen.migo.network.core.NetworkHandle
+import com.allen.migo.data.*
 import com.allen.migo.network.api.StatusService
+import com.allen.migo.network.core.NetworkHandle
+import com.allen.migo.viewmodel.PassListViewModel
 import com.allen.migo.viewmodel.StatusViewModel
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -17,11 +17,16 @@ val viewModelModule = module {
     viewModel {
         StatusViewModel(get())
     }
+    viewModel {
+        PassListViewModel(get())
+    }
 }
 
 val repositoryModule = module {
-    factory { StatusRepository(get()) }
-    factory { StatusRemoteDataSource(get(), get()) }
+    single { StatusRepository(get()) }
+    single { StatusRemoteDataSource(get(), get()) }
+    single { providePassDataSource() }
+    single { PassRepository(get()) }
 }
 
 val networkModule = module {
@@ -46,4 +51,7 @@ fun provideRetrofit(client: OkHttpClient): Retrofit =
 fun provideStatusService(retrofit: Retrofit): StatusService =
     retrofit.create(StatusService::class.java)
 
-val appModule = listOf(networkModule, repositoryModule, viewModelModule)
+fun providePassDataSource(): PassDataSource =
+    PassLocalDataSource()
+
+val appModule = listOf(networkModule, viewModelModule, repositoryModule)

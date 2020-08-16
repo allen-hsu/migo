@@ -34,7 +34,7 @@ class MainActivity : BaseActivity() {
 
     private fun initObserver() {
         isLoading.observe(this, Observer {
-            if(it) {
+            if (it) {
                 progressBar.visibility = View.VISIBLE
             } else {
                 progressBar.visibility = View.GONE

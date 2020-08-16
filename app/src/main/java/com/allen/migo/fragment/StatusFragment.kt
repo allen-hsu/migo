@@ -14,7 +14,7 @@ class StatusFragment : BaseFragment() {
     private val statusViewModel: StatusViewModel by viewModel()
     private val networkHandle: NetworkHandle by inject()
 
-    override fun getLayout() : Int {
+    override fun getLayout(): Int {
         return R.layout.fragment_status
     }
 
@@ -25,11 +25,11 @@ class StatusFragment : BaseFragment() {
 
     private fun initObserver(view: View) {
         statusViewModel.message.observe(this.viewLifecycleOwner, Observer {
-            view.text_message.text = getString(R.string.text_message, it)
+            view.text_message.text = getString(R.string.text_network_message, it)
         })
 
         statusViewModel.status.observe(this.viewLifecycleOwner, Observer {
-            view.text_status.text = getString(R.string.text_status, it.toString())
+            view.text_status.text = getString(R.string.text_network_status, it.toString())
         })
 
         networkHandle.apiEnv.observe(this.viewLifecycleOwner, Observer {
@@ -40,7 +40,7 @@ class StatusFragment : BaseFragment() {
     private fun initView(view: View) {
         view.btn_status.setOnClickListener {
             statusViewModel.getNetworkStatus().observe(this.viewLifecycleOwner, Observer {
-                when(it.status) {
+                when (it.status) {
                     ApiResult.Status.SUCCESS -> getBaseActivity().hideLoading()
                     ApiResult.Status.ERROR -> getBaseActivity().hideLoading()
                     ApiResult.Status.LOADING -> getBaseActivity().showLoading()

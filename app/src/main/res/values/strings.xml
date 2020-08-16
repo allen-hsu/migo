@@ -4,6 +4,10 @@
     <string name="nav_wallet">Wallet</string>
     <string name="btn_status">Get NetworkStatus</string>
     <string name="btn_add_pass">Add Pass</string>
-    <string name="text_status">Network Status %1$s</string>
-    <string name="text_message">Network Message %1$s</string>
+    <string name="btn_activate_pass">Activate Pass</string>
+    <string name="text_network_status">Network Status : %1$s</string>
+    <string name="text_network_message">Network Message : %1$s</string>
+    <string name="text_empty_list">Not Data</string>
+    <string name="text_pass_type">Pass Type : %1$s</string>
+    <string name="text_pass_status">Pass Status : %1$s</string>
 </resources>

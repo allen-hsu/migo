@@ -9,7 +9,7 @@ import kotlinx.android.synthetic.main.fragment_wallet.view.*
 
 class WalletFragment : BaseFragment() {
 
-    override fun getLayout() : Int {
+    override fun getLayout(): Int {
         return R.layout.fragment_wallet
     }
 

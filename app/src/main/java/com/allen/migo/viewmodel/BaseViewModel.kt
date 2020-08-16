@@ -1,12 +1,15 @@
 package com.allen.migo.viewmodel
 
 import androidx.lifecycle.ViewModel
-import kotlinx.coroutines.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.cancel
 import org.jetbrains.annotations.TestOnly
 
 abstract class BaseViewModel : ViewModel() {
 
-    protected var viewModelJob : Job = Job()
+    protected var viewModelJob: Job = Job()
     protected val viewModelScope by lazy {
         CoroutineScope(Dispatchers.Main + viewModelJob)
     }

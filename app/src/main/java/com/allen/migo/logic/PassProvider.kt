@@ -6,14 +6,14 @@ interface PassportProvider {
 }
 
 enum class PassType {
-    UNKNOWN,
     HOUR,
     DAY,
+    UNKNOWN,
 }
 
 enum class PassStatus {
-    UNKNOWN,
     NOT_ACTIVATE,
     ACTIVATE,
     EXPIRE,
+    UNKNOWN,
 }

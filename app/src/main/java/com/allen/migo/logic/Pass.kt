@@ -2,8 +2,10 @@ package com.allen.migo.logic
 
 import com.allen.migo.ext.convertToFullDateTime
 
-class Pass private constructor(private val unitNum: Int,
-                               private val provider: PassportProvider?){
+class Pass private constructor(
+    private val unitNum: Int,
+    private val provider: PassportProvider?
+) {
 
 
     private var _activateTimestamp = 0L
@@ -15,7 +17,8 @@ class Pass private constructor(private val unitNum: Int,
 
     data class Builder(
         private var unitNum: Int = 0,
-        private var provider: PassportProvider? = null) {
+        private var provider: PassportProvider? = null
+    ) {
 
         fun unitNum(unitNum: Int) = apply { this.unitNum = unitNum }
         fun provider(provider: PassportProvider) = apply { this.provider = provider }
@@ -41,29 +44,29 @@ class Pass private constructor(private val unitNum: Int,
         return PassType.UNKNOWN
     }
 
-    fun status(): PassStatus {
+    fun passStatus(): PassStatus {
         val currentTimestamp = System.currentTimeMillis()
-        if(_activateTimestamp <= 0) {
+        if (_activateTimestamp <= 0) {
             return PassStatus.NOT_ACTIVATE
         }
 
-        if(currentTimestamp in _activateTimestamp.._expiredTimestamp) {
+        if (currentTimestamp in _activateTimestamp.._expiredTimestamp) {
             return PassStatus.ACTIVATE
         }
 
-        if(currentTimestamp > _expiredTimestamp) {
+        if (currentTimestamp > _expiredTimestamp) {
             return PassStatus.EXPIRE
         }
         return PassStatus.UNKNOWN
     }
 
     fun activate() {
-        if(unitNum == 0) {
+        if (unitNum == 0) {
             //unitNum should not be zero
             return
         }
 
-        if(_activateTimestamp <= 0) {
+        if (_activateTimestamp <= 0) {
             _activateTimestamp = System.currentTimeMillis()
             provider?.run {
                 _expiredTimestamp = this.expiredTimestamp(unitNum, _activateTimestamp)

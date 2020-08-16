@@ -13,7 +13,7 @@ abstract class BaseFragment : Fragment() {
     abstract fun init(view: View)
 
     @LayoutRes
-    abstract fun getLayout() : Int
+    abstract fun getLayout(): Int
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -25,7 +25,7 @@ abstract class BaseFragment : Fragment() {
         return root
     }
 
-    fun getBaseActivity() : BaseActivity {
+    fun getBaseActivity(): BaseActivity {
         return activity as BaseActivity
     }
 }

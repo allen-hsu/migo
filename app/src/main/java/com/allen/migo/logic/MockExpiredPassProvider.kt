@@ -1,8 +1,8 @@
 package com.allen.migo.logic
 
-class MockExpiredPassProvider(): PassportProvider {
+class MockExpiredPassProvider() : PassportProvider {
     override fun expiredTimestamp(num: Int, activateTimestamp: Long): Long {
-        return activateTimestamp + 100
+        return activateTimestamp + 1000
     }
 
     override fun passType(): PassType {

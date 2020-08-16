@@ -1,13 +1,16 @@
 package com.allen.migo.network.core
 
 import android.content.Context
-import android.net.*
-import android.net.NetworkCapabilities.*
-import android.os.Build
+import android.net.ConnectivityManager
+import android.net.Network
+import android.net.NetworkCapabilities
+import android.net.NetworkCapabilities.TRANSPORT_CELLULAR
+import android.net.NetworkCapabilities.TRANSPORT_WIFI
+import android.net.NetworkRequest
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 
-class NetworkHandle (private val context: Context) {
+class NetworkHandle(private val context: Context) {
     private var connectivityManager: ConnectivityManager? = null
     private var networkCallback: ConnectivityManager.NetworkCallback
 
@@ -68,20 +71,20 @@ class NetworkHandle (private val context: Context) {
                 var isConnectWifi = false
                 var isConnectCellular = false
                 connectivityManager?.run {
-                    for(networkInfo in this.allNetworks) {
+                    for (networkInfo in this.allNetworks) {
                         val capabilities = this.getNetworkCapabilities(networkInfo)
                         capabilities?.run {
-                            if(this.hasTransport(TRANSPORT_WIFI)) {
+                            if (this.hasTransport(TRANSPORT_WIFI)) {
                                 isConnectWifi = true
                             }
-                            if(this.hasTransport(TRANSPORT_CELLULAR)) {
+                            if (this.hasTransport(TRANSPORT_CELLULAR)) {
                                 isConnectCellular = true
                             }
                         }
                     }
                 }
 
-                if(isConnectWifi && isConnectCellular) {
+                if (isConnectWifi && isConnectCellular) {
                     _apiEnv.postValue(ApiEnv.PRIVATE)
                 } else {
                     _apiEnv.postValue(ApiEnv.PUBLIC)

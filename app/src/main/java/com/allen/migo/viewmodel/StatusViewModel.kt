@@ -1,13 +1,12 @@
 package com.allen.migo.viewmodel
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.liveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.liveData
 import com.allen.migo.data.StatusRepository
 import com.allen.migo.network.core.ApiResult
-import kotlinx.coroutines.launch
 
-class StatusViewModel(private val repository : StatusRepository): BaseViewModel() {
+class StatusViewModel(private val repository: StatusRepository) : BaseViewModel() {
 
     private val _status = MutableLiveData(0)
     val status: LiveData<Int> get() = _status
@@ -16,14 +15,14 @@ class StatusViewModel(private val repository : StatusRepository): BaseViewModel(
     val message: LiveData<String> get() = _message
 
 
-    fun getNetworkStatus() = liveData(viewModelScope.coroutineContext)  {
+    fun getNetworkStatus() = liveData(viewModelScope.coroutineContext) {
         emit(ApiResult.loading(data = null))
         val response = repository.queryStatus()
-        if(response.isSuccessful) {
+        if (response.isSuccessful) {
             emit(ApiResult.success(data = response.body()))
             response.body()?.apply {
                 this.status?.apply {
-                        _status.postValue(this)
+                    _status.postValue(this)
                 }
                 this.message?.apply {
                     _message.postValue(this)

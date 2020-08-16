@@ -11,10 +11,13 @@ class WalletViewPagerAdapter(fragmentManager: FragmentManager, lifecycle: Lifecy
     FragmentStateAdapter(fragmentManager, lifecycle) {
 
     override fun getItemCount(): Int {
-        return PassType.values().size
+
+        return PassType.values().filter {
+            it.compareTo(PassType.UNKNOWN) != 0
+        }.size
     }
 
     override fun createFragment(position: Int): Fragment {
-        return PassListFragment()
+        return PassListFragment(PassType.values()[position])
     }
 }

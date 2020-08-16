@@ -21,7 +21,7 @@ abstract class BaseActivity : AppCompatActivity() {
 
     protected fun changeFragment(f: Fragment, cleanStack: Boolean = false) {
         hideLoading()
-        if(cleanStack) {
+        if (cleanStack) {
             clearBackStack()
         }
 
