@@ -3,9 +3,9 @@ Migo App
 
 It's sample project, include mvvm architecture, network status handle.
 
-> Folder structure options and naming conventions for software projects
 
 ### Android src top-level directory layout
+> Folder structure options and naming conventions for software projects
 
     ├── app/src/main/java/src
       ├── constant                          # Constant
@@ -31,13 +31,13 @@ It's sample project, include mvvm architecture, network status handle.
 
 ### About the architecture
 
-> + Using Mvvm architecture to implement, And use dependency injection to decrease coupling,
-> + And just use one Activity with multiple Fragment to implement all project,
-> + Use LiveData(Observer Pattern) to implement Single Data Flow and observer data changing that  to change ui state
-> + Use Strategy Pattern to implement different algorithm within pass provider and using Builder Pattern to Factory correct pass provider
+> + MVVM architecture, and use dependency injection to decrease coupling,
+> + Just use one Activity with multiple Fragment to implement all project.
+> + Use LiveData(Observer Pattern) to implement Single Data Flow and observer data changing that  to change UI state.
+> + Use Strategy Pattern to implement different algorithm within pass provider and using Builder Pattern to Factory correct pass provider.
 
 ### Mock Logic
-> Just Mock Passprovid to valid expired circumstance, if you want to test, you can uncomment this code section.
+> Just mock PassProvider to valid expired circumstance, if you want to test, you can uncomment this code section.
 
 ```kotlin
 PassLocalDataSource.class
