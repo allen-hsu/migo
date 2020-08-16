@@ -7,18 +7,17 @@ It's sample project, include mvvm architecture, network status handle.
 
 ### Android src top-level directory layout
 
-    .
     ├── app/src/main/java/src
-      ├── constant                   		# Constant
-      ├── data                    			# Data files, Repository/DataSource
-      ├── di                     			# Di files
-      ├── ext                    			# Kotlin Extension
-      ├── framework                   	    # Base Class
-      ├── logic                   			# Business login file
-      ├── network                   		# Network Handle and API service for Retrofit use
-      ├── ui                   				# Recycle ViewHolder/Adapter, ViewPager adapter
-      ├── viewmodel                   	    # ViewModel class
-    ├── gradle/version.gradle				# Put all dependency 3rd version declare
+      ├── constant                          # Constant
+      ├── data                              # Data files, Repository/DataSource
+      ├── di                                # Di files
+      ├── ext                               # Kotlin Extension
+      ├── framework                         # Base Class
+      ├── logic                             # Business login file
+      ├── network                           # Network Handle and API service for Retrofit use
+      ├── ui                                # Recycle ViewHolder/Adapter, ViewPager adapter
+      ├── viewmodel                         # ViewModel class
+    ├── gradle/version.gradle               # Put all dependency 3rd version declare
     ├── LICENSE
     └── README.md
 
