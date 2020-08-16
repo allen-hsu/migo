@@ -1,7 +1,9 @@
-package com.allen.migo
+package com.allen.migo.ui
 
 import android.view.View
 import android.view.ViewGroup
+import com.allen.migo.R
+import com.allen.migo.framework.BaseRecyclerViewHolder
 import com.allen.migo.logic.Pass
 import com.allen.migo.logic.PassStatus
 import kotlinx.android.synthetic.main.item_pass.view.*

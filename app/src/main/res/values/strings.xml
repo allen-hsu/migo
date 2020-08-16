@@ -10,4 +10,5 @@
     <string name="text_empty_list">Not Data</string>
     <string name="text_pass_type">Pass Type : %1$s</string>
     <string name="text_pass_status">Pass Status : %1$s</string>
+    <string name="edit_pass_num_hint">Please input num</string>
 </resources>

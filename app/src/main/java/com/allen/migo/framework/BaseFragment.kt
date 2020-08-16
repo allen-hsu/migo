@@ -1,4 +1,4 @@
-package com.allen.migo.fragment
+package com.allen.migo.framework
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
-import com.allen.migo.activity.BaseActivity
+import com.allen.migo.framework.BaseActivity
 
 abstract class BaseFragment : Fragment() {
 

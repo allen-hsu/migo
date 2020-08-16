@@ -2,6 +2,7 @@ package com.allen.migo.viewmodel
 
 import androidx.lifecycle.LiveData
 import com.allen.migo.data.PassRepository
+import com.allen.migo.framework.BaseViewModel
 import com.allen.migo.logic.Pass
 
 

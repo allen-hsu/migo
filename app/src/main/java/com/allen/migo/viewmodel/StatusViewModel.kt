@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.liveData
 import com.allen.migo.data.StatusRepository
+import com.allen.migo.framework.BaseViewModel
 import com.allen.migo.network.core.ApiResult
 
 class StatusViewModel(private val repository: StatusRepository) : BaseViewModel() {

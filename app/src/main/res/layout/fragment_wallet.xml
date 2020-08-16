@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     android:orientation="vertical"
-    tools:context=".fragment.WalletFragment">
+    tools:context=".ui.fragment.WalletFragment">
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tab_layout"
@@ -19,4 +19,29 @@
         android:layout_height="0dp"
         android:layout_weight="1" />
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/edit_pass_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:autofillHints="no"
+            android:hint="@string/edit_pass_num_hint">
+        </EditText>
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/btn_add_pass"
+            android:enabled="false"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_add_pass">
+        </Button>
+    </LinearLayout>
 </LinearLayout>

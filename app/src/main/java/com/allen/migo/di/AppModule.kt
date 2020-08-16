@@ -5,6 +5,7 @@ import com.allen.migo.network.api.StatusService
 import com.allen.migo.network.core.NetworkHandle
 import com.allen.migo.viewmodel.PassListViewModel
 import com.allen.migo.viewmodel.StatusViewModel
+import com.allen.migo.viewmodel.WalletViewModel
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.viewmodel.dsl.viewModel
@@ -19,6 +20,9 @@ val viewModelModule = module {
     }
     viewModel {
         PassListViewModel(get())
+    }
+    viewModel {
+        WalletViewModel(get())
     }
 }
 

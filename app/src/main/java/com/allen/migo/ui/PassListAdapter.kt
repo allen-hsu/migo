@@ -1,6 +1,8 @@
-package com.allen.migo
+package com.allen.migo.ui
 
 import android.view.ViewGroup
+import com.allen.migo.framework.BaseRecyclerViewAdapter
+import com.allen.migo.framework.BaseRecyclerViewHolder
 import com.allen.migo.logic.Pass
 
 class PassListAdapter(
@@ -13,6 +15,10 @@ class PassListAdapter(
         parent: ViewGroup,
         viewType: Int
     ): BaseRecyclerViewHolder<Pass> {
-        return PassViewHolder(parent, onItemClicked, onPassBtnClicked)
+        return PassViewHolder(
+            parent,
+            onItemClicked,
+            onPassBtnClicked
+        )
     }
 }

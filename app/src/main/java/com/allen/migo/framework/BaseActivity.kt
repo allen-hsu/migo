@@ -1,7 +1,6 @@
-package com.allen.migo.activity
+package com.allen.migo.framework
 
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -19,7 +18,7 @@ abstract class BaseActivity : AppCompatActivity() {
         _isLoading.postValue(false)
     }
 
-    protected fun changeFragment(f: Fragment, cleanStack: Boolean = false) {
+    protected fun changeFragment(f: BaseFragment, cleanStack: Boolean = false) {
         hideLoading()
         if (cleanStack) {
             clearBackStack()

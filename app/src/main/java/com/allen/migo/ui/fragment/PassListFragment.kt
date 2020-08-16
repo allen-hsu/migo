@@ -1,9 +1,10 @@
-package com.allen.migo.fragment
+package com.allen.migo.ui.fragment
 
 import android.view.View
 import androidx.lifecycle.Observer
-import com.allen.migo.PassListAdapter
+import com.allen.migo.ui.PassListAdapter
 import com.allen.migo.R
+import com.allen.migo.framework.BaseFragment
 import com.allen.migo.logic.PassType
 import com.allen.migo.viewmodel.PassListViewModel
 import kotlinx.android.synthetic.main.fragment_pass_list.view.*
@@ -11,13 +12,14 @@ import org.koin.android.viewmodel.ext.android.viewModel
 
 class PassListFragment(private val passType: PassType) : BaseFragment() {
     private val viewModel: PassListViewModel by viewModel()
-    private val adapter: PassListAdapter = PassListAdapter(
-        onItemClicked = {
-        },
-        onPassBtnClicked = {
-            viewModel.activatePass(it)
-        }
-    )
+    private val adapter: PassListAdapter =
+        PassListAdapter(
+            onItemClicked = {
+            },
+            onPassBtnClicked = {
+                viewModel.activatePass(it)
+            }
+        )
 
     override fun getLayout(): Int {
         return R.layout.fragment_pass_list

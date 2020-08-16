@@ -1,4 +1,4 @@
-package com.allen.migo
+package com.allen.migo.framework
 
 import android.view.View
 import android.view.ViewGroup

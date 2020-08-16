@@ -1,4 +1,4 @@
-package com.allen.migo.viewmodel
+package com.allen.migo.framework
 
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.CoroutineScope

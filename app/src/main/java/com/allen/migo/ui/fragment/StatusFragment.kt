@@ -1,8 +1,9 @@
-package com.allen.migo.fragment
+package com.allen.migo.ui.fragment
 
 import android.view.View
 import androidx.lifecycle.Observer
 import com.allen.migo.R
+import com.allen.migo.framework.BaseFragment
 import com.allen.migo.network.core.ApiResult
 import com.allen.migo.network.core.NetworkHandle
 import com.allen.migo.viewmodel.StatusViewModel

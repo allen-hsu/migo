@@ -26,6 +26,11 @@ class PassLocalDataSource : PassDataSource {
         passListLiveData.postValue(passListData)
     }
 
+    override fun addPass(pass: Pass) {
+        passListData.add(pass)
+        passListLiveData.postValue(passListData)
+    }
+
     private fun createMockData() {
 //        for (i in 0..5) {
 //            _mockListData.apply {
@@ -62,4 +67,5 @@ class PassLocalDataSource : PassDataSource {
 interface PassDataSource {
     fun activatePass(pass: Pass)
     fun queryPassList(): LiveData<List<Pass>>
+    fun addPass(pass: Pass)
 }

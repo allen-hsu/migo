@@ -6,8 +6,6 @@ class Pass private constructor(
     private val unitNum: Int,
     private val provider: PassportProvider?
 ) {
-
-
     private var _activateTimestamp = 0L
     val activateTimestamp: Long get() = _activateTimestamp
     private var _expiredTimestamp = 0L

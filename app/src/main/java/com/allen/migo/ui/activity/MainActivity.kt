@@ -1,11 +1,12 @@
-package com.allen.migo.activity
+package com.allen.migo.ui.activity
 
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.Observer
 import com.allen.migo.R
-import com.allen.migo.fragment.StatusFragment
-import com.allen.migo.fragment.WalletFragment
+import com.allen.migo.ui.fragment.StatusFragment
+import com.allen.migo.ui.fragment.WalletFragment
+import com.allen.migo.framework.BaseActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 
