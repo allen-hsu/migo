@@ -1,10 +1,9 @@
-Migo App
-============================
+# Migo App
 
 It's sample project, include mvvm architecture, network status handle.
 
-
 ### Android src top-level directory layout
+
 > Folder structure options and naming conventions for software projects
 
     ├── app/src/main/java/src
@@ -21,22 +20,21 @@ It's sample project, include mvvm architecture, network status handle.
     ├── LICENSE
     └── README.md
 
-
-
 ### 3rd party libraries
 
-+ Network: Okhttp + Retrofit
-+ DI Framework: Koin
-+ Ktx: for easy write
+- Network: Okhttp + Retrofit
+- DI Framework: Koin
+- Ktx: for easy write
 
 ### About the architecture
 
-> + MVVM architecture, and use dependency injection to decrease coupling,
-> + Just use one Activity with multiple Fragment to implement all project.
-> + Use LiveData(Observer Pattern) to implement Single Data Flow and observer data changing that  to change UI state.
-> + Use Strategy Pattern to implement different algorithm within pass provider and using Builder Pattern to Factory correct pass provider.
+> - MVVM architecture, and use dependency injection to decrease coupling.
+> - Just use one Activity with multiple Fragment to implement all project.
+> - Use LiveData(Observer Pattern) to implement Single Data Flow and observer data changing that to change UI state.
+> - Use Strategy Pattern to implement different algorithm within pass provider and using Builder Pattern to Factory correct pass provider.
 
 ### Mock Logic
+
 > Just mock PassProvider to valid expired circumstance, if you want to test, you can uncomment this code section.
 
 ```kotlin
@@ -52,4 +50,3 @@ PassLocalDataSource.class
 //            }
 //        }
 ```
-
