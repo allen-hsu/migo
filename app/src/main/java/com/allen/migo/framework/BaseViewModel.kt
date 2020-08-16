@@ -14,7 +14,6 @@ abstract class BaseViewModel : ViewModel() {
         CoroutineScope(Dispatchers.Main + viewModelJob)
     }
 
-
     @TestOnly
     fun cancel() {
         onCleared()

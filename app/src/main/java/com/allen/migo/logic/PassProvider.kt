@@ -9,7 +9,7 @@ interface PassportProvider {
 class PassProviderFactory {
     companion object {
         fun factory(passType: PassType): PassportProvider {
-            return if(passType == PassType.HOUR) {
+            return if (passType == PassType.HOUR) {
                 HourPassProvider()
             } else {
                 DayPassProvider()

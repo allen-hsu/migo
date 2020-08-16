@@ -28,20 +28,20 @@
             android:id="@+id/edit_pass_number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="number"
             android:autofillHints="no"
-            android:hint="@string/edit_pass_num_hint">
-        </EditText>
+            android:hint="@string/edit_pass_num_hint"
+            android:inputType="number"></EditText>
+
         <Spinner
             android:id="@+id/spinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
+
         <Button
             android:id="@+id/btn_add_pass"
-            android:enabled="false"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/btn_add_pass">
-        </Button>
+            android:enabled="false"
+            android:text="@string/btn_add_pass"></Button>
     </LinearLayout>
 </LinearLayout>

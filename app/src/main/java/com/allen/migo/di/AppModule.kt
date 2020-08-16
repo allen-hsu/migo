@@ -11,18 +11,16 @@ import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
-
 
 val viewModelModule = module {
     viewModel {
         StatusViewModel(get())
     }
     viewModel {
-        PassListViewModel(get())
+        WalletViewModel(get())
     }
     viewModel {
-        WalletViewModel(get())
+        PassListViewModel(get())
     }
 }
 
@@ -49,7 +47,6 @@ fun provideRetrofit(client: OkHttpClient): Retrofit =
     Retrofit.Builder()
         .baseUrl("http://code-test.migoinc-dev.com")
         .client(client)
-        .addConverterFactory(GsonConverterFactory.create())
         .build()
 
 fun provideStatusService(retrofit: Retrofit): StatusService =

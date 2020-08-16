@@ -35,7 +35,7 @@ class PassViewHolder(
         this.pass = data
 
         itemView.text_pass_type.apply {
-            text = itemView.context.getString(R.string.text_pass_type, data.passType().toString())
+            text = itemView.context.getString(R.string.text_pass_type, data.unitNum(), data.passType().toString())
         }
 
         itemView.text_status.apply {

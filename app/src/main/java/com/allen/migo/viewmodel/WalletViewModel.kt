@@ -2,7 +2,9 @@ package com.allen.migo.viewmodel
 
 import com.allen.migo.data.PassRepository
 import com.allen.migo.framework.BaseViewModel
-import com.allen.migo.logic.*
+import com.allen.migo.logic.Pass
+import com.allen.migo.logic.PassProviderFactory
+import com.allen.migo.logic.PassType
 
 class WalletViewModel(private val repository: PassRepository) : BaseViewModel() {
 

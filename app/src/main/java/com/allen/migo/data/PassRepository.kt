@@ -16,4 +16,8 @@ class PassRepository(private val dataSource: PassDataSource) {
     fun addPass(pass: Pass) {
         dataSource.addPass(pass)
     }
+
+    fun getPass(index: Int): Pass? {
+        return dataSource.getPass(index)
+    }
 }

@@ -21,5 +21,4 @@ ext {
 
     okHttpVersion = "4.8.1"
     retrofitVersion = "2.9.0"
-    gsonVersion = "2.8.6"
 }

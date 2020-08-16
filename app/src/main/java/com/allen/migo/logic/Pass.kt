@@ -1,6 +1,9 @@
 package com.allen.migo.logic
 
+import android.os.Parcel
+import android.os.Parcelable
 import com.allen.migo.ext.convertToFullDateTime
+import kotlinx.android.parcel.Parcelize
 
 class Pass private constructor(
     private val unitNum: Int,
@@ -23,6 +26,9 @@ class Pass private constructor(
         fun build() = Pass(unitNum, provider)
     }
 
+    fun unitNum(): Int {
+        return unitNum
+    }
     fun expiredDateTime(): String {
         return _expiredTimestamp.convertToFullDateTime()
     }
@@ -73,3 +79,10 @@ class Pass private constructor(
     }
 }
 
+@Parcelize
+data class PassParcelize(val passUnitNum: Int,
+                         val passStatus: PassStatus,
+                         val passType: PassType,
+                         val activateDateTime: String,
+                         val expiredDateTime: String,
+                         val insertDateTime: String): Parcelable

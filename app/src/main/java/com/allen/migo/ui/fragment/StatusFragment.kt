@@ -24,6 +24,10 @@ class StatusFragment : BaseFragment() {
         initObserver(view)
     }
 
+    override fun release(view: View) {
+
+    }
+
     private fun initObserver(view: View) {
         statusViewModel.message.observe(this.viewLifecycleOwner, Observer {
             view.text_message.text = getString(R.string.text_network_message, it)
