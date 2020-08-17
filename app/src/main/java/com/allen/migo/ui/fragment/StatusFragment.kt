@@ -40,6 +40,10 @@ class StatusFragment : BaseFragment() {
         networkHandle.apiEnv.observe(this.viewLifecycleOwner, Observer {
             view.text_host.text = "${it.name} : ${it.value}"
         })
+        networkHandle.networkAvailable.observe(this.viewLifecycleOwner, Observer {
+            view.btn_status.isEnabled = it
+            view.text_host.text = getString(R.string.text_status_not_connect)
+        })
     }
 
     private fun initView(view: View) {

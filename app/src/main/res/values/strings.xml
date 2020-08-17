@@ -5,6 +5,7 @@
     <string name="btn_status">Get NetworkStatus</string>
     <string name="btn_add_pass">Add Pass</string>
     <string name="btn_activate_pass">Activate Pass</string>
+    <string name="text_status_not_connect">Network is not available</string>
     <string name="text_network_status">Network Status : %1$s</string>
     <string name="text_network_message">Network Message : %1$s</string>
     <string name="text_empty_list">Not Data</string>
