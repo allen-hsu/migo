@@ -84,7 +84,7 @@ class NetworkHandle(private val context: Context) {
                     }
                 }
 
-                if (isConnectWifi && isConnectCellular) {
+                if(isConnectWifi) {
                     _apiEnv.postValue(ApiEnv.PRIVATE)
                 } else {
                     _apiEnv.postValue(ApiEnv.PUBLIC)

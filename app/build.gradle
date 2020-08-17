@@ -50,6 +50,9 @@ dependencies {
     implementation "com.squareup.retrofit2:retrofit:${rootProject.ext.retrofitVersion}"
     implementation "com.squareup.retrofit2:converter-gson:${rootProject.ext.retrofitVersion}"
 
+    //Gson
+    implementation "com.google.code.gson:gson:${rootProject.ext.gsonVersion}"
+
     // ktx
     implementation "androidx.core:core-ktx:${rootProject.ext.ktxVersion}"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:${rootProject.ext.liveDataKtxVersion}"

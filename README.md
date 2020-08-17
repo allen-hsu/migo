@@ -23,6 +23,7 @@ It's sample project, include mvvm architecture, network status handle.
 ### 3rd party libraries
 
 - Network: Okhttp + Retrofit
+- Gson: Json parser lib
 - DI Framework: Koin
 - Ktx: for easy write
 
