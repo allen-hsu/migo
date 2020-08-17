@@ -3,6 +3,7 @@ package com.allen.migo.framework
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.allen.migo.logic.Pass
 import java.util.*
 
 abstract class BaseRecyclerViewAdapter<T> : RecyclerView.Adapter<BaseRecyclerViewHolder<T>>() {
@@ -27,15 +28,21 @@ abstract class BaseRecyclerViewAdapter<T> : RecyclerView.Adapter<BaseRecyclerVie
         }
     }
 
-    override fun getItemCount(): Int {
-        synchronized(itemsLock) {
-            return items.size
-        }
+    override fun onViewAttachedToWindow(viewHolder: BaseRecyclerViewHolder<T>) {
+        super.onViewAttachedToWindow(viewHolder)
+        viewHolder.initObserve()
     }
 
     override fun onViewDetachedFromWindow(viewHolder: BaseRecyclerViewHolder<T>) {
         super.onViewDetachedFromWindow(viewHolder)
+        viewHolder.releaseObserve()
         cancelAnimationsRecursive(viewHolder.itemView)
+    }
+
+    override fun getItemCount(): Int {
+        synchronized(itemsLock) {
+            return items.size
+        }
     }
 
     open fun onBind(viewHolder: BaseRecyclerViewHolder<T>, position: Int) {

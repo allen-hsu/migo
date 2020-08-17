@@ -24,14 +24,4 @@ class PassListAdapter(
             latestExpiredTime
         )
     }
-
-    override fun onViewAttachedToWindow(viewHolder: BaseRecyclerViewHolder<Pass>) {
-        super.onViewAttachedToWindow(viewHolder)
-        viewHolder.initObserve()
-    }
-
-    override fun onViewDetachedFromWindow(viewHolder: BaseRecyclerViewHolder<Pass>) {
-        super.onViewDetachedFromWindow(viewHolder)
-        viewHolder.releaseObserve()
-    }
 }
