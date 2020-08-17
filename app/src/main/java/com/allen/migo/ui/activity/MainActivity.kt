@@ -7,8 +7,8 @@ import androidx.lifecycle.Observer
 import com.allen.migo.R
 import com.allen.migo.framework.BaseActivity
 import com.allen.migo.framework.FragmentNavigate
+import com.allen.migo.ui.fragment.PassListFragment
 import com.allen.migo.ui.fragment.StatusFragment
-import com.allen.migo.ui.fragment.WalletFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -31,7 +31,7 @@ class MainActivity : BaseActivity() {
         BottomNavigationView.OnNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.navigation_network -> getFragmentNavigate()?.changeFragment(StatusFragment())
-                R.id.navigation_wallet -> getFragmentNavigate()?.changeFragment(WalletFragment())
+                R.id.navigation_wallet -> getFragmentNavigate()?.changeFragment(PassListFragment())
             }
             true
         }

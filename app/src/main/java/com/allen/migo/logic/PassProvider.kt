@@ -3,7 +3,6 @@ package com.allen.migo.logic
 interface PassportProvider {
     fun expiredTimestamp(num: Int, activateTimestamp: Long): Long
     fun passType(): PassType
-
 }
 
 class PassProviderFactory {

@@ -2,6 +2,9 @@ package com.allen.migo.ui
 
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Observer
 import com.allen.migo.R
 import com.allen.migo.framework.BaseRecyclerViewHolder
 import com.allen.migo.logic.Pass
@@ -11,11 +14,15 @@ import kotlinx.android.synthetic.main.item_pass.view.*
 class PassViewHolder(
     parent: ViewGroup,
     private val onItemClicked: ((data: Pass) -> Unit)? = null,
-    private val onPassBtnClicked: ((data: Pass) -> Unit)? = null
+    private val onPassBtnClicked: ((data: Pass) -> Unit)? = null,
+    private var latestExpiredTime: LiveData<Long>? = null
 ) : BaseRecyclerViewHolder<Pass>(R.layout.item_pass, parent) {
 
     private var pass: Pass? = null
-
+    private val observer = Observer<Long> {
+        val currentTimestamp = System.currentTimeMillis()
+        itemView.btn_activate.isEnabled = it <= 0 || currentTimestamp > it
+    }
     init {
         itemView.apply {
             setOnClickListener {
@@ -50,5 +57,14 @@ class PassViewHolder(
                 View.GONE
             }
         }
+    }
+
+    override fun initObserve() {
+        latestExpiredTime?.observeForever(observer)
+    }
+
+    override fun releaseObserve() {
+        latestExpiredTime?.removeObserver(observer)
+        latestExpiredTime = null
     }
 }

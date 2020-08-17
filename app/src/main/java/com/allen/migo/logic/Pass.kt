@@ -20,7 +20,6 @@ class Pass private constructor(
         private var unitNum: Int = 0,
         private var provider: PassportProvider? = null
     ) {
-
         fun unitNum(unitNum: Int) = apply { this.unitNum = unitNum }
         fun provider(provider: PassportProvider) = apply { this.provider = provider }
         fun build() = Pass(unitNum, provider)

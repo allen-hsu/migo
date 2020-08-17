@@ -4,13 +4,13 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.allen.migo.logic.DayPassProvider
 import com.allen.migo.logic.HourPassProvider
-import com.allen.migo.logic.MockExpiredPassProvider
 import com.allen.migo.logic.Pass
 
 
 class PassLocalDataSource : PassDataSource {
     private val passListData: MutableList<Pass> = mutableListOf()
     private val passListLiveData: MutableLiveData<List<Pass>> = MutableLiveData(passListData)
+    private val latestExpiredTime: MutableLiveData<Long> = MutableLiveData(0)
 
     init {
         createMockData()
@@ -20,11 +20,16 @@ class PassLocalDataSource : PassDataSource {
         return passListLiveData
     }
 
+    override fun getLatestExpiredTime(): LiveData<Long> {
+        return latestExpiredTime
+    }
+
     override fun activatePass(pass: Pass) {
         val value = passListData.find {
             it == pass
         }
         value?.activate()
+        latestExpiredTime.postValue(value?.expiredTimestamp)
         passListLiveData.postValue(passListData)
     }
 
@@ -77,6 +82,7 @@ class PassLocalDataSource : PassDataSource {
 interface PassDataSource {
     fun activatePass(pass: Pass)
     fun queryPassList(): LiveData<List<Pass>>
+    fun getLatestExpiredTime(): LiveData<Long>
     fun addPass(pass: Pass)
     fun getPass(index: Int): Pass?
 }

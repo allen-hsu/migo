@@ -18,6 +18,6 @@ class WalletViewPagerAdapter(fragmentManager: FragmentManager, lifecycle: Lifecy
     }
 
     override fun createFragment(position: Int): Fragment {
-        return PassListFragment(PassType.values()[position])
+        return PassListFragment()
     }
 }

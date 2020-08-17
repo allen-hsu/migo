@@ -3,6 +3,7 @@ package com.allen.migo.framework
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.CallSuper
 import androidx.annotation.LayoutRes
 import androidx.recyclerview.widget.RecyclerView
 
@@ -13,4 +14,8 @@ abstract class BaseRecyclerViewHolder<T>(itemView: View) : RecyclerView.ViewHold
 
     abstract fun bind(data: T)
     open fun rebind(data: T) {}
+
+    abstract fun initObserve()
+
+    abstract fun releaseObserve()
 }

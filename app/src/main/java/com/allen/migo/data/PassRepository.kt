@@ -20,4 +20,8 @@ class PassRepository(private val dataSource: PassDataSource) {
     fun getPass(index: Int): Pass? {
         return dataSource.getPass(index)
     }
+
+    fun getLatestExpiredTime(): LiveData<Long> {
+        return dataSource.getLatestExpiredTime()
+    }
 }
