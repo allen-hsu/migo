@@ -10,22 +10,19 @@ import android.net.NetworkRequest
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 
-class NetworkHandle(private val context: Context) {
+class NetworkHandleProvider(private val context: Context): NetworkHandle {
     private var connectivityManager: ConnectivityManager? = null
     private var networkCallback: ConnectivityManager.NetworkCallback
 
     private val _networkAvailable = MutableLiveData<Boolean>(false)
-    val networkAvailable: LiveData<Boolean> get() = _networkAvailable
 
     private val _networkMode = MutableLiveData<NetworkMode>(
         NetworkMode.NONE
     )
-    val networkMode: LiveData<NetworkMode> get() = _networkMode
 
     private val _apiEnv = MutableLiveData<ApiEnv>(
         ApiEnv.PUBLIC
     )
-    val apiEnv: LiveData<ApiEnv> get() = _apiEnv
 
     init {
         connectivityManager =
@@ -100,4 +97,24 @@ class NetworkHandle(private val context: Context) {
             networkCallback
         )
     }
+
+    override fun networkAvailable(): LiveData<Boolean> {
+        return _networkAvailable
+    }
+
+    override fun networkMode(): LiveData<NetworkMode> {
+        return _networkMode
+    }
+
+    override fun apiEnv(): LiveData<ApiEnv> {
+        return _apiEnv
+    }
+}
+
+interface NetworkHandle {
+    fun networkAvailable(): LiveData<Boolean>
+
+    fun networkMode(): LiveData<NetworkMode>
+
+    fun apiEnv(): LiveData<ApiEnv>
 }

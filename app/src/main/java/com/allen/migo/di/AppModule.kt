@@ -1,8 +1,9 @@
 package com.allen.migo.di
 
+import android.content.Context
 import com.allen.migo.data.*
 import com.allen.migo.network.api.StatusService
-import com.allen.migo.network.core.NetworkHandle
+import com.allen.migo.network.core.*
 import com.allen.migo.viewmodel.PassListViewModel
 import com.allen.migo.viewmodel.StatusViewModel
 import com.allen.migo.viewmodel.WalletViewModel
@@ -36,7 +37,8 @@ val networkModule = module {
     single { provideOkHttpClient() }
     single { provideRetrofit(get()) }
     single { provideStatusService(get()) }
-    single { NetworkHandle(get()) }
+    single { provideNetworkHandle(get()) }
+//    single { provideMockNetworkHandle() }
 }
 
 fun provideOkHttpClient(): OkHttpClient =
@@ -56,5 +58,14 @@ fun provideStatusService(retrofit: Retrofit): StatusService =
 
 fun providePassDataSource(): PassDataSource =
     PassLocalDataSource()
+
+fun provideNetworkHandle(context: Context) : NetworkHandle =
+    NetworkHandleProvider(context)
+
+//fun provideMockNetworkHandle() : NetworkHandle =
+//    MockWifiNetworkHandleProvider()
+//    MockCellularProvider()
+//    MockNoneNetworkProvider()
+
 
 val appModule = listOf(networkModule, viewModelModule, repositoryModule)

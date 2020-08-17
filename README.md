@@ -36,7 +36,7 @@ It's sample project, include mvvm architecture, network status handle.
 
 ### Mock Logic
 
-> Just mock PassProvider to valid expired circumstance, if you want to test, you can uncomment this code section.
+> Mock PassProvider to valid expired circumstance, if you want to test, you can uncomment this code section.
 
 ```kotlin
 PassLocalDataSource.class
@@ -50,4 +50,13 @@ PassLocalDataSource.class
 //                this.add(pass)
 //            }
 //        }
+```
+
+> Mock NetworkHandle to valid Wifi/Cellular circumstance, if you want to test, you can uncomment this code section, and use provideMockNetworkHandle to inject
+```kotlin
+ApiModule.class
+//fun provideMockNetworkHandle() : NetworkHandle =
+//    MockWifiNetworkHandleProvider()
+//    MockCellularProvider()
+//    MockNoneNetworkProvider()
 ```

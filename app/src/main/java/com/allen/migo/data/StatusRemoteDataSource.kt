@@ -12,7 +12,7 @@ class StatusRemoteDataSource(
     private val networkHandle: NetworkHandle
 ) {
     suspend fun queryStatus(): Response<StatusApiResult> {
-        return if (networkHandle.networkMode.value == NetworkMode.WIFI) {
+        return if (networkHandle.networkMode().value == NetworkMode.WIFI) {
             service.queryStatus(ApiHostConstant.PUBLIC_API_HOST)
         } else {
             service.queryStatus(ApiHostConstant.PUBLIC_API_HOST)
